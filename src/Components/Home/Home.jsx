@@ -6,9 +6,11 @@ const Home = () => {
                 <img className="w-[960px] h-[600px]" src="https://i.ibb.co/H4dc59W/manhart.jpg"></img>
                 <img className="w-[960px] h-[600px]" src="https://i.ibb.co/cDD5z7F/bmw.jpg"></img>
             </div>
+
             <div className="h-[100px] flex items-center justify-center"id='text-bg'>
                   <h1 className="text-center text-white font-bold text-2xl">“Automotive- where your dreams meet affordability”</h1>
             </div>
+            
             <div className="pt-10 pb-10"><h1 className="text-2xl font-bold text-center">Popular <span className="text-blue-400">Brands</span></h1></div>
 
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 lg:w-[1350px] mx-auto">

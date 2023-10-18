@@ -35,6 +35,10 @@ const NavBar = () => {
                         className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "text-blue-400 border border-blue-400 p-1 px-2 font-bold" : "font-bold text-blue-400"} style={{}}>LOGIN
                     </NavLink>
+                    <NavLink to="/register"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "text-blue-400 border border-blue-400 p-1 px-2 font-bold" : "font-bold text-blue-400"} style={{}}>REGISTER
+                    </NavLink>
                 </div>
             </div>
         </div>
