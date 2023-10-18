@@ -1,0 +1,8 @@
+#text-bg{
+    background-image: url("https://i.ibb.co/3mB0Wsd/bg1.png");
+    background-repeat: 'no-repeat'; 
+    background-size : auto auto;
+    background-position: right 5% center;
+    background-attachment: fixed;
+    background-color: #1E69B8 !important;
+}
