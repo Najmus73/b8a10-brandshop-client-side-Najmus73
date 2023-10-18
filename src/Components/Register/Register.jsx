@@ -6,7 +6,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Register = () => {
-    const { registerUser,logOut } = useContext(AuthContext);
+    const { registerUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
 

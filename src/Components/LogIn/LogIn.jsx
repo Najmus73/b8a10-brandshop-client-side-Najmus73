@@ -1,12 +1,13 @@
 import { useContext} from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
+import { FcGoogle } from 'react-icons/fc';
 import swal from 'sweetalert';
 
 const LogIn = () =>{
    
 
-   const { LogInUser } = useContext(AuthContext)
+   const { LogInUser,LogInWithGoogle } = useContext(AuthContext)
    const navigate = useNavigate();
 
     const handleLoginUser = e =>{
@@ -24,6 +25,17 @@ const LogIn = () =>{
             swal("error", `${err.message}`, "error");
         })
 
+    }
+
+    const handleGoogleLogin = () =>{
+        LogInWithGoogle()
+        .then(res=>{
+            swal("Good job!", "Successfully Logged In", "success")
+            navigate('/');
+        })
+        .catch(err=>{
+            swal("error", `${err.message}`, "error");
+        })
     }
 
 
@@ -84,7 +96,7 @@ const LogIn = () =>{
             </div>
 
             <div className="pt-10 flex items-center text-5xl font-bold text-blue-400">OR</div>
-            
+            <div onClick={handleGoogleLogin} className="pt-10 flex items-center text-3xl font-bold"><div className="flex gap-2 items-center"><FcGoogle></FcGoogle><p> <span className="text-blue-500">G</span><span className="text-red-500">o</span><span className="text-yellow-500">o</span><span className="text-blue-500">g</span><span className="text-green-500">l</span><span className="text-red-500">e</span></p></div></div>
         </div>
     )
 }
