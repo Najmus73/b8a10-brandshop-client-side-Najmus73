@@ -1,18 +1,17 @@
-// import { useContext } from "react";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import swal from 'sweetalert';
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 
 const Register = () => {
-    // const { registerUser,logOut } = useContext(AuthContext);
+    const { registerUser,logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
     const handleRegisterUser = e => {
         e.preventDefault();
-        const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value
 
@@ -32,7 +31,6 @@ const Register = () => {
             .then(res => {
                 swal("Good job!", "Successfully registered, Now you can login!", "success")
                 e.target.reset()
-                logOut()
                 navigate('/login')
             })
             .catch(err => {
