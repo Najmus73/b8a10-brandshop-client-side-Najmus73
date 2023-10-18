@@ -2,7 +2,7 @@ const Footer = () => {
     return (
         <div className="pt-[100px] overflow-hidden">
           <div className="w-[1920px]" style={{backgroundColor: '#2B3440'}}>
-        <footer className="footer grid pl-[90px] py-10 text-white lg:w-[1350px] mx-auto lg:grid lg:grid-cols-4 lg:justify-between">
+        <footer className="footer grid py-10 text-white lg:w-[1350px] mx-auto lg:grid lg:grid-cols-4 lg:justify-between">
             <nav>
                 <header className="footer-title">Services</header>
                 <a className="link link-hover">Branding</a>
