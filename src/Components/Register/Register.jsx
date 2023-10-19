@@ -6,7 +6,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Register = () => {
-    const { registerUser } = useContext(AuthContext);
+    const { registerUser,logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -31,6 +31,7 @@ const Register = () => {
             .then(res => {
                 swal("Good job!", "Successfully registered, Now you can login!", "success")
                 e.target.reset()
+                 logOut();
                 navigate('/login')
             })
             .catch(err => {

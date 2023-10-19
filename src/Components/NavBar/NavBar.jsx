@@ -1,6 +1,27 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import swal from 'sweetalert';
+
 
 const NavBar = () => {
+
+    const { user,logOut } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    
+    const handleSignOut = () =>{
+        logOut()
+        .then(()=>{
+            if (user) {
+                swal("Good job!", "Successfully Sign Out", "success")
+                navigate('/login')
+            }
+        })
+        .catch(err=>{
+            swal("error", `${err.message}`, "error");
+        })
+    }
     return (
         <div>
             <div className="bg-neutral overflow-hidden">
@@ -31,14 +52,31 @@ const NavBar = () => {
                         className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "text-blue-400 border border-blue-400 p-1 px-2 font-bold" : "font-bold text-blue-400"} style={{}}>MYCART
                     </NavLink>
-                    <NavLink to="/login"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-blue-400 border border-blue-400 p-1 px-2 font-bold" : "font-bold text-blue-400"} style={{}}>LOGIN
-                    </NavLink>
-                    <NavLink to="/register"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-blue-400 border border-blue-400 p-1 px-2 font-bold" : "font-bold text-blue-400"} style={{}}>REGISTER
-                    </NavLink>
+                    {
+                        !user && <>
+                            <NavLink to="/login"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "text-blue-400 border border-blue-400 p-1 px-2 font-bold" : "font-bold text-blue-400"} style={{}}>LOGIN
+                            </NavLink>
+                            <NavLink to="/register"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "text-blue-400 border border-blue-400 p-1 px-2 font-bold" : "font-bold text-blue-400"} style={{}}>REGISTER
+                            </NavLink>
+                        </>
+                    }
+                    {
+                        user ? <>
+                            <span className="text-blue-400 font-bold uppercase">{user.displayName}</span>
+                            <div className="avatar">
+                                <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src={user.photoURL} />
+                                </div>
+                            </div>
+                            <button onClick={handleSignOut} className=" text-white rounded-md px-3 py-1 font-bold border border-white bg-blue-400">Log Out</button>
+                        </>
+                            :
+                            ""
+                    }
                 </div>
             </div>
         </div>
