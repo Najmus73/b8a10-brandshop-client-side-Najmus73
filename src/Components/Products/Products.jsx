@@ -5,12 +5,13 @@ import ProductsPage from "./ProductsPage";
 
 const Products = () => {
     const allCars = useLoaderData();
+    
     const { brandName } = useParams();
-    console.log(brandName);
+    
 
     const filter = allCars.filter(car => car.brandName == brandName)
-    console.log(filter);
-
+  
+    
     return (
         <div className="w-[1350px] mx-auto">
             <div>

@@ -13,13 +13,17 @@ import LogIn from './Components/LogIn/LogIn';
 import Register from './Components/Register/Register';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
 import Products from './Components/Products/Products';
-import HomeCard from './Components/HomeCard/HomeCard';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
+import ProductDetails from './Components/ProductDetails/ProductDetails';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage> ,
     children: [
       {
         path: '/',
@@ -28,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addProducts',
-        element: <AddProduct></AddProduct>
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
       {
         path: '/myCart',
@@ -43,8 +47,13 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path:'/:brandName',
+        path:'Cars/:brandName',
         element:<Products></Products>,
+        loader: () => fetch('http://localhost:5000/product')
+      },
+      {
+        path:'/:_id',
+        element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/product')
       }      
     ]

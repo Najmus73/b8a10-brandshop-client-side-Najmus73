@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 const ProductsPage = ({ car }) => {
+    
     return (
         <div>
             {
@@ -17,7 +20,7 @@ const ProductsPage = ({ car }) => {
                                 </div>
                                 <div className="flex flex-col gap-[100px]">
                                     <div className="card-actions ">
-                                        <button className="btn bg-blue-400 font-bold text-white">Details</button>
+                                        <Link to={`/${car._id}`}><button className="btn bg-blue-400 font-bold text-white">Details</button></Link>
                                     </div>
                                     <div className="card-actions ">
                                         <button className="btn bg-blue-400 font-bold text-white">Update</button>

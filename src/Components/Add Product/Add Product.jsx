@@ -68,7 +68,7 @@ const AddProduct = () => {
                 </div>
 
                 <div className="pt-[20px]">
-                    <input type="submit" value="Add Product" className="btn btn-block" />
+                    <input type="submit" value="Add Product" className="btn btn-block bg-blue-400 font-bold text-white" />
                 </div>
                 </form>
 

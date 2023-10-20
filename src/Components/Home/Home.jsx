@@ -26,7 +26,7 @@ const Home = () => {
 
             <div className="py-[100px]">
                 <img className="w-full" src="https://i.ibb.co/ZV0YgWr/car-Banner.png" alt="" />
-                <div className="mt-[-150px] pl-[80px]"><button className="p-2 text-white font-bold" style={{ backgroundColor: '#828282' }}>Register Now</button></div>
+                <div className="mt-[-150px] pl-[80px]"><Link to='/register'><button className="p-2 text-white font-bold" style={{ backgroundColor: '#828282' }}>Register Now</button></Link></div>
             </div>
         </div>
     )
