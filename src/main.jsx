@@ -12,7 +12,9 @@ import MyCart from './Components/My Cart/My Cart';
 import LogIn from './Components/LogIn/LogIn';
 import Register from './Components/Register/Register';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
-import Products from './Components/Products/Porducts';
+import Products from './Components/Products/Products';
+import HomeCard from './Components/HomeCard/HomeCard';
+
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element:<Home></Home>,
-        loader: () => fetch('/data.json')
+        loader: () => fetch('http://localhost:5000/product')
       },
       {
         path: '/addProducts',
@@ -41,9 +43,10 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: '/products/:id',
-        element:<Products></Products>
-      }
+        path:'/:brandName',
+        element:<Products></Products>,
+        loader: () => fetch('http://localhost:5000/product')
+      }      
     ]
   },
 ]);

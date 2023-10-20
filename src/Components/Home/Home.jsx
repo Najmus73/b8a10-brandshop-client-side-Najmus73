@@ -1,9 +1,10 @@
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import '../Styles/Style.css'
+import HomeCard from '../HomeCard/HomeCard';
 const Home = () => {
 
     const Brands = useLoaderData();
-   
+    const filter = Brands.filter(brand=>brand.page == 'home')
     return (
         <div className="relative">
             <div className="lg:flex overflow-hidden">
@@ -19,20 +20,7 @@ const Home = () => {
 
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 lg:w-[1350px] mx-auto">
                 {
-                    Brands.map(brand =>
-                        <div className="border border-blue-400 rounded-lg">
-                            <div className="flex items-center relative">
-                                <div className="flex-col">
-                                    <div><figure><img className="w-[200px] h-[100px] px-[35px]" src={brand.logo} /></figure></div>
-                                    <h1 className="font-bold text-center">{brand.brand}</h1> 
-                                <div className="flex justify-center bottom-[0px] left-0 m-auto absolute">
-                                <Link><button className="p-1.5 px-[70.5px] border  bg-blue-400 font-bold text-white border-blue-400 rounded-bl-lg">Details</button></Link>
-                                </div>
-                                </div>
-                                <figure><img className="w-[470px] h-[300px] rounded-r-lg" src={brand.image} /></figure>
-                            </div>
-                        </div>
-                    )
+                    filter.map(brand =><HomeCard brand={brand}></HomeCard>)
                 }
             </div>
 

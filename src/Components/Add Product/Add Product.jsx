@@ -29,7 +29,7 @@ const AddProduct = () => {
     }
     return (
         <div>
-            <div className="h-[1000px] w-[1350px] mx-auto pt-[50px]">
+            <div className="h-[500px] w-[1350px] mx-auto pt-[50px]">
                 <form onSubmit={handleAddProduct}>
                 <div className="flex justify-between">
                     <div className="flex flex-col">
