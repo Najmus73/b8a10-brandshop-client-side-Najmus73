@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element:<Home></Home>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://automotive-selling-site-server-o01mt5s8s.vercel.app/product')
       },
       {
         path: '/addProducts',
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: '/myCart',
         element:<MyCart></MyCart>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://automotive-selling-site-server-o01mt5s8s.vercel.app/product')
 
       },
       {
@@ -52,17 +52,17 @@ const router = createBrowserRouter([
       {
         path:'Cars/:brandName',
         element:<Products></Products>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://automotive-selling-site-server-o01mt5s8s.vercel.app/product')
       },
       {
         path:'/:_id',
         element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://automotive-selling-site-server-o01mt5s8s.vercel.app/product')
       },
       {
         path: '/update/:_id',
         element: <PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params._id}`)
+        loader: ({params}) => fetch(`https://automotive-selling-site-server-o01mt5s8s.vercel.app/product/${params._id}`)
         
       }    
     ]
