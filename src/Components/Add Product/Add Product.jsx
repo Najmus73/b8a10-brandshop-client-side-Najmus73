@@ -1,3 +1,4 @@
+import swal from 'sweetalert';
 const AddProduct = () => {
     const handleAddProduct = e =>{
        e.preventDefault(); 
@@ -23,7 +24,7 @@ const AddProduct = () => {
          .then(data => {
             console.log((data));
             if(data.insertedId){
-                alert('success')
+                swal("Good job!", "Successfully added a product", "success")
             }
          })
     }
@@ -44,7 +45,15 @@ const AddProduct = () => {
                 <div className="flex justify-between">
                     <div className="flex flex-col">
                         <label>Brand Name</label>
-                        <input className="border border-blue-400 py-[5px] pr-[460px]" type="text" name="brandName" placeholder="Enter Brand Name" />
+                        <input list='data' className="border border-blue-400 py-[5px] pr-[460px]" type="text" name="brandName" placeholder="Enter Brand Name" />
+                        <datalist id='data'>
+                             <option>TOYOTA</option>
+                             <option>FORD</option>
+                             <option>BMW</option>
+                             <option>MERCEDES</option>
+                             <option>TESLA</option>
+                             <option>HYUNDAI</option>
+                        </datalist>
                     </div>
                     <div className="flex flex-col">
                         <label>Type</label>

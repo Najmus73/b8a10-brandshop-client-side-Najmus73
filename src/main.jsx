@@ -16,6 +16,7 @@ import Products from './Components/Products/Products';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Update from './Components/Update/Update';
 
 
 
@@ -36,7 +37,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/myCart',
-        element:<MyCart></MyCart>
+        element:<MyCart></MyCart>,
+        loader: () => fetch('http://localhost:5000/product')
+
       },
       {
         path: '/login',
@@ -55,7 +58,13 @@ const router = createBrowserRouter([
         path:'/:_id',
         element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/product')
-      }      
+      },
+      {
+        path: '/update/:_id',
+        element: <PrivateRoute><Update></Update></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/product/${params._id}`)
+        
+      }    
     ]
   },
 ]);

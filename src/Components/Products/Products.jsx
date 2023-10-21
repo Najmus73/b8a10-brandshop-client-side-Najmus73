@@ -15,9 +15,9 @@ const Products = () => {
     return (
         <div className="w-[1350px] mx-auto">
             <div>
-                <div className="carousel h-[500px] ">
+                <div className="carousel h-[500px] rounded-lg">
                     <div id="item1" className="carousel-item w-full">
-                        <img src="https://i.ibb.co/kMYVC9F/toyota-Black.jpg" className="w-full" />
+                        <img src="https://i.ibb.co/ZV0YgWr/car-Banner.png" className="w-full" />
                     </div>
                     <div id="item2" className="carousel-item w-full">
                         <img src="https://i.ibb.co/wwpdfhN/ford.jpg" className="w-full" />

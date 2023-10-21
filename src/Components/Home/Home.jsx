@@ -1,4 +1,5 @@
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import Marquee from "react-fast-marquee";
 import '../Styles/Style.css'
 import HomeCard from '../HomeCard/HomeCard';
 const Home = () => {
@@ -10,6 +11,18 @@ const Home = () => {
             <div className="lg:flex overflow-hidden">
                 <img className="w-[960px] h-[600px]" src="https://i.ibb.co/H4dc59W/manhart.jpg"></img>
                 <img className="w-[960px] h-[600px]" src="https://i.ibb.co/cDD5z7F/bmw.jpg"></img>
+            </div>
+            <div className='h-[100px]'>
+            <Marquee pauseOnHover={true} speed={120}>
+                   <div className='flex gap-[200px] items-center'>
+                   <img className='w-[100px] h-[100px]' src="https://i.ibb.co/k0PRkkf/toyota-3d-vector-logo.png" alt="" />
+                    <img className='w-[120px] h-[110px]' src="https://i.ibb.co/Sm7NjJK/ford-logo.png" alt="" />
+                    <img className='w-[100px] h-[80px]' src="https://i.ibb.co/ykryX6L/bmw-car-logo.png" alt="" />
+                    <img className='w-[100px] h-[80px]' src="https://i.ibb.co/xSP7CSN/mercedes-benz-9-logo-png-transparent.png" alt="" />
+                    <img className='w-[100px] h-[100px]' src="https://i.ibb.co/7gVXZqN/tesla-logo-PNG22.png" alt="" />
+                    <img className='w-[100px] h-[100px]' src="https://i.ibb.co/qFvkMJT/hyundai-logo.png" alt="" />
+                   </div>
+            </Marquee>
             </div>
 
             <div className="h-[100px] flex items-center justify-center" id='text-bg'>
